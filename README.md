@@ -29,9 +29,9 @@ https://moodle.org/plugins/block_enrolkey
 Branches
 --------
 
-| Moodle version    | Branch      | PHP   |
-|-------------------| ----------- | ----- |
-| Moodle 3.5 to 4.5 | master      | 7.1+  |
+| Moodle version    | Branch           | PHP   |
+|-------------------| ---------------- | ----- |
+| Moodle 3.5 to 4.5 | MOODLE_35_STABLE | 7.1+  |
 
 Installation
 ------------
