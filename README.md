@@ -1,6 +1,6 @@
 # Moodle Enrolment key based self-registration
 
-![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/catalyst/moodle-auth_enrolkey/ci/master?label=ci)
+![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/catalyst/moodle-auth_enrolkey/ci.yml?branch=MOODLE_35_STABLE)
 
 This auth plugin combines the best of both email based signup and self enrolment keys into a streamlined process making it much faster for students to get into a course. For the student it saves around 9-10 clicks and avoids context switching between a browser and their email client where they can become easily become disengaged or run into issues if their email is unavailable.
 
