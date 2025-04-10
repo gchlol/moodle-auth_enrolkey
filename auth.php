@@ -199,12 +199,20 @@ class auth_plugin_enrolkey extends auth_plugin_base {
         $USER->loggedin = true;
         $USER->site = $CFG->wwwroot;
         set_moodle_cookie($USER->username);
-        list($availableenrolids, $errors) = $this->enrol_user($user->signup_token, $notify);
+        //list($availableenrolids, $errors) = $this->enrol_user($user->signup_token, $notify);
+        $availableenrolids = [];
+        $errors = [];
+
+        if ($user->signup_token) {
+            list($availableenrolids, $errors) = $this->enrol_user($user->signup_token, $notify);
+        }
+
         if (!$notify) {
             return;
         }
 
-        if (!empty($availableenrolids) && $user->confirmed === 0 && $user->policyagreed === 0) {
+        //if (!empty($availableenrolids) && $user->confirmed === 0 && $user->policyagreed === 0) {
+        if ($user->confirmed === 0 && $user->policyagreed === 0) {
             $this->email_confirmation($user->email);
         }
 
