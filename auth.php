@@ -199,10 +199,12 @@ class auth_plugin_enrolkey extends auth_plugin_base {
         $USER->loggedin = true;
         $USER->site = $CFG->wwwroot;
         set_moodle_cookie($USER->username);
-        //list($availableenrolids, $errors) = $this->enrol_user($user->signup_token, $notify);
         $availableenrolids = [];
         $errors = [];
 
+        // Ignore a user with a `signup_token == ""` during user creation.
+        // This avoids the bug where a user automatically enrols in all courses
+        // with `mdl_enrol.password = "" AND mdl_enrol.enrol = 'self'`
         if ($user->signup_token) {
             list($availableenrolids, $errors) = $this->enrol_user($user->signup_token, $notify);
         }
@@ -211,7 +213,6 @@ class auth_plugin_enrolkey extends auth_plugin_base {
             return;
         }
 
-        //if (!empty($availableenrolids) && $user->confirmed === 0 && $user->policyagreed === 0) {
         if ($user->confirmed === 0 && $user->policyagreed === 0) {
             $this->email_confirmation($user->email);
         }
