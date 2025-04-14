@@ -350,9 +350,6 @@ class auth_plugin_enrolkey extends auth_plugin_base {
      * @return array
      */
     private function get_enrol_plugins(moodle_database $db, string $enrolkey) : array {
-        // Avoid the bug that a user created with an empty `$enrolkey` gets enrolled in all courses with `password=''`
-        $enrolplugins = [];
-
         // Password is the Enrolment key that is specified in the Self enrolment instance.
         $enrolplugins = $db->get_records('enrol', ['enrol' => 'self', 'password' => $enrolkey]);
 
