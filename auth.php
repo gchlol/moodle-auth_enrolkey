@@ -354,9 +354,7 @@ class auth_plugin_enrolkey extends auth_plugin_base {
         $enrolplugins = [];
 
         // Password is the Enrolment key that is specified in the Self enrolment instance.
-        if ($enrolkey != '') {
-            $enrolplugins = $db->get_records('enrol', ['enrol' => 'self', 'password' => $enrolkey]);
-        }
+        $enrolplugins = $db->get_records('enrol', ['enrol' => 'self', 'password' => $enrolkey]);
 
         return array_merge($enrolplugins, $db->get_records_sql("
                 SELECT e.*, g.enrolmentkey
