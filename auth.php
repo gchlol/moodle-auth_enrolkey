@@ -244,7 +244,7 @@ class auth_plugin_enrolkey extends auth_plugin_base {
         $errors = [];
 
         // Avoid the bug that a user created with an empty $enrolkey auto-enrols
-        // into all courses with an empty self-enrol and group-enrol key
+        // into all courses with an empty self-enrol or group-enrol key
         if (empty($enrolkey)) {
             return [$availableenrolids, $errors];
         }
