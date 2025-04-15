@@ -204,7 +204,7 @@ class auth_plugin_enrolkey extends auth_plugin_base {
             return;
         }
 
-        // Avoid logging in an illegal user after account creation. Redirects to an email sent page.
+        // Avoid logging in an illegal user after account creation. Redirects to an email-sent page.
         if ($user->confirmed === 0 && $user->policyagreed === 0) {
             $this->email_confirmation($user->email);
         }
@@ -243,7 +243,7 @@ class auth_plugin_enrolkey extends auth_plugin_base {
         $availableenrolids = [];
         $errors = [];
 
-        // Avoid the bug that a user created with an empty $enrolkey auto-enrol
+        // Avoid the bug that a user created with an empty $enrolkey auto-enrols
         // into all courses with an empty self-enrol and group-enrol key
         if (empty($enrolkey)) {
             return [$availableenrolids, $errors];
